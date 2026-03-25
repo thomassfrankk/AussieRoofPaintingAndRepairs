@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://aussieroofpaintingandrepairs.com.au/sitemap.xml
