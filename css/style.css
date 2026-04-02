@@ -17,6 +17,33 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
+/* Force white on phone links - override Safari/iOS blue */
+a[href^="tel"],
+.mobile-phone-btn,
+.mobile-phone-btn span {
+  color: var(--white) !important;
+  -webkit-text-fill-color: var(--white) !important;
+  text-decoration: none !important;
+}
+
+.mobile-phone-btn svg {
+  fill: var(--white) !important;
+}
+
+.footer-social a,
+.footer-social a svg {
+  color: var(--text-muted) !important;
+  -webkit-text-fill-color: var(--text-muted) !important;
+  fill: var(--text-muted) !important;
+}
+
+.footer-social a:hover,
+.footer-social a:hover svg {
+  color: var(--white) !important;
+  -webkit-text-fill-color: var(--white) !important;
+  fill: var(--white) !important;
+}
+
 body {
   font-family: 'Outfit', sans-serif;
   background-color: var(--bg-dark);
@@ -90,9 +117,9 @@ nav {
 }
 
 .nav-phone {
-  color: var(--white) !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.02em !important;
+  color: var(--text-light) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.06em !important;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -101,15 +128,31 @@ nav {
 
 .nav-phone svg {
   flex-shrink: 0;
+  fill: var(--text-light);
 }
 
 .nav-phone:hover {
-  color: var(--cream) !important;
+  color: var(--green-light) !important;
 }
 
-/* Mobile Phone Button in Nav */
+.nav-phone:hover svg {
+  fill: var(--green-light);
+}
+
+/* Mobile Phone Button in Nav - ONLY visible on mobile */
+@media (min-width: 901px) {
+  .mobile-phone-btn {
+    display: none !important;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    position: absolute;
+  }
+}
+
 .mobile-phone-btn {
-  display: none !important;
+  display: flex;
   align-items: center;
   gap: 0.5rem;
   color: var(--white) !important;
@@ -652,7 +695,7 @@ footer {
 
 .footer-social {
   display: flex;
-  gap: 2rem;
+  gap: 3rem;
   align-items: center;
 }
 
@@ -704,7 +747,6 @@ footer {
 @media (max-width: 900px) {
   nav { padding: 0.8rem 1.5rem; }
   .nav-links { display: none; }
-  .mobile-phone-btn { display: flex !important; }
   .hero { padding: 5rem 1.5rem 2rem; }
   .hero-content { grid-template-columns: 1fr; gap: 2rem; }
   .services, .why-us, .quote-section { padding: 3rem 1.5rem; }
@@ -712,7 +754,7 @@ footer {
   .quote-container { grid-template-columns: 1fr; gap: 2rem; }
   .quote-form { padding: 1.5rem; }
   .form-grid { grid-template-columns: 1fr; }
-  .footer-content { flex-direction: column; text-align: center; gap: 1rem; }
+  .footer-content { flex-direction: column; text-align: center; gap: 1.5rem; }
   .footer-social { order: 0; }
   .footer-copy { order: -1; }
   .footer-links { order: 1; }
