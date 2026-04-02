@@ -109,19 +109,25 @@ nav {
 
 /* Mobile Phone Button in Nav */
 .mobile-phone-btn {
-  display: none;
+  display: none !important;
   align-items: center;
   gap: 0.5rem;
-  color: var(--white);
+  color: var(--white) !important;
   font-family: 'Outfit', sans-serif;
   font-size: 0.85rem;
   font-weight: 600;
-  text-decoration: none;
+  text-decoration: none !important;
   letter-spacing: 0.02em;
   -webkit-text-fill-color: var(--white);
 }
 
+.mobile-phone-btn span {
+  color: var(--white) !important;
+  -webkit-text-fill-color: var(--white);
+}
+
 .mobile-phone-btn svg {
+  fill: var(--white);
   flex-shrink: 0;
 }
 
@@ -646,18 +652,22 @@ footer {
 
 .footer-social {
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
   align-items: center;
 }
 
 .footer-social a {
-  color: var(--text-muted);
-  transition: color 0.3s;
+  color: var(--white);
+  transition: opacity 0.3s;
   display: flex;
   align-items: center;
 }
 
-.footer-social a:hover { color: var(--white); }
+.footer-social a svg {
+  fill: var(--white);
+}
+
+.footer-social a:hover { opacity: 0.7; }
 
 .footer-links {
   display: flex;
@@ -694,7 +704,7 @@ footer {
 @media (max-width: 900px) {
   nav { padding: 0.8rem 1.5rem; }
   .nav-links { display: none; }
-  .mobile-phone-btn { display: flex; }
+  .mobile-phone-btn { display: flex !important; }
   .hero { padding: 5rem 1.5rem 2rem; }
   .hero-content { grid-template-columns: 1fr; gap: 2rem; }
   .services, .why-us, .quote-section { padding: 3rem 1.5rem; }
