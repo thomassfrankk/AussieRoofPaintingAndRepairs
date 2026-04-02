@@ -99,6 +99,17 @@ nav {
   color: var(--gold-light) !important;
 }
 
+/* Mobile Phone Button in Nav */
+.mobile-phone-btn {
+  display: none;
+  color: var(--gold);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
 /* Sticky Mobile Call Button */
 .mobile-call-btn {
   display: none;
@@ -352,7 +363,7 @@ nav {
   position: absolute;
   top: 0; left: 0;
   width: 60px; height: 3px;
-  background: linear-gradient(90deg, var(--green), var(--gold));
+  background: var(--gold);
   border-radius: 0 0 4px 0;
   transition: width 0.4s;
 }
@@ -672,6 +683,7 @@ footer {
 @media (max-width: 900px) {
   nav { padding: 0.8rem 1.5rem; }
   .nav-links { display: none; }
+  .mobile-phone-btn { display: block; }
   .mobile-call-btn { display: block; }
   .hero { padding: 5rem 1.5rem 2rem; }
   .hero-content { grid-template-columns: 1fr; gap: 2rem; }
