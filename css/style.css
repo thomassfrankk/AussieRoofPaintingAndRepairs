@@ -90,40 +90,26 @@ nav {
 }
 
 .nav-phone {
-  color: var(--gold) !important;
+  color: var(--white) !important;
   font-weight: 600 !important;
   letter-spacing: 0.02em !important;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 .nav-phone:hover {
-  color: var(--gold-light) !important;
+  color: var(--cream) !important;
 }
 
 /* Mobile Phone Button in Nav */
 .mobile-phone-btn {
   display: none;
-  color: var(--gold);
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--white);
   font-family: 'Outfit', sans-serif;
   font-size: 0.85rem;
-  font-weight: 600;
-  text-decoration: none;
-  letter-spacing: 0.02em;
-}
-
-/* Sticky Mobile Call Button */
-.mobile-call-btn {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 99;
-  background: var(--green);
-  color: var(--white);
-  text-align: center;
-  padding: 1rem;
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.95rem;
   font-weight: 600;
   text-decoration: none;
   letter-spacing: 0.02em;
@@ -662,6 +648,21 @@ footer {
 
 .footer-links a:hover { color: var(--green-light); }
 
+.footer-social {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.footer-social a {
+  color: var(--text-muted);
+  transition: color 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+.footer-social a:hover { color: var(--white); }
+
 /* ── ANIMATIONS ── */
 @keyframes fadeSlideUp {
   from { opacity: 0; transform: translateY(30px); }
@@ -683,8 +684,7 @@ footer {
 @media (max-width: 900px) {
   nav { padding: 0.8rem 1.5rem; }
   .nav-links { display: none; }
-  .mobile-phone-btn { display: block; }
-  .mobile-call-btn { display: block; }
+  .mobile-phone-btn { display: flex; }
   .hero { padding: 5rem 1.5rem 2rem; }
   .hero-content { grid-template-columns: 1fr; gap: 2rem; }
   .services, .why-us, .quote-section { padding: 3rem 1.5rem; }
@@ -693,7 +693,7 @@ footer {
   .quote-form { padding: 1.5rem; }
   .form-grid { grid-template-columns: 1fr; }
   .footer-content { flex-direction: column; text-align: center; }
-  footer { padding-bottom: 4.5rem; }
+  footer { padding-bottom: 2rem; }
 }
 
 @media (max-width: 500px) {
@@ -701,4 +701,7 @@ footer {
   .hero-actions { flex-direction: column; align-items: stretch; }
   .btn-primary, .btn-secondary { justify-content: center; }
   .why-number { font-size: 2.2rem; }
+  .hero-image-overlay { gap: 1.5rem; justify-content: center; }
+  .hero-stat strong { font-size: 1.4rem; }
+  .hero-stat small { font-size: 0.6rem; }
 }
