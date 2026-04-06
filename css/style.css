@@ -467,23 +467,15 @@ nav {
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  gap: 1.5rem;
-  padding: 0 0.5rem;
 }
 
 .gallery-carousel::-webkit-scrollbar { display: none; }
 
+/* Desktop: show 2 slides at a time (before + after pair) */
 .gallery-slide {
-  flex: 0 0 100%;
+  flex: 0 0 50%;
   scroll-snap-align: start;
-}
-
-.gallery-pair {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  border-radius: 12px;
-  overflow: hidden;
+  padding: 0 0.5rem;
 }
 
 .gallery-photo {
@@ -494,7 +486,6 @@ nav {
 
 .gallery-photo img {
   width: 100%;
-  height: 100%;
   aspect-ratio: 3 / 2;
   object-fit: cover;
   display: block;
@@ -865,7 +856,8 @@ footer {
   .hero { padding: 7.5rem 1.5rem 2rem; }
   .hero-content { grid-template-columns: 1fr; gap: 2rem; }
   .services, .why-us, .quote-section, .gallery { padding: 3rem 1.5rem; }
-  .gallery-pair { grid-template-columns: 1fr; }
+  .gallery-slide { flex: 0 0 100%; }
+  .gallery-photo img { aspect-ratio: auto; }
   .gallery-arrow { width: 36px; height: 36px; font-size: 1.4rem; }
   .why-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
   .quote-container { grid-template-columns: 1fr; gap: 2rem; }
