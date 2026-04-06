@@ -7,36 +7,49 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-// Before & After Slider
-document.querySelectorAll('.ba-slider').forEach(slider => {
-  const before = slider.querySelector('.ba-before');
-  const handle = slider.querySelector('.ba-handle');
-  let isDragging = false;
+// Gallery Carousel
+const carousel = document.getElementById('galleryCarousel');
+const dotsContainer = document.getElementById('galleryDots');
 
-  function updateSlider(x) {
-    const rect = slider.getBoundingClientRect();
-    let pos = (x - rect.left) / rect.width;
-    pos = Math.max(0.05, Math.min(0.95, pos));
-    const pct = pos * 100;
-    before.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
-    handle.style.left = pct + '%';
+if (carousel && dotsContainer) {
+  const slides = carousel.querySelectorAll('.gallery-slide');
+  let currentSlide = 0;
+
+  // Create dots
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'gallery-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    dot.addEventListener('click', () => goToSlide(i));
+    dotsContainer.appendChild(dot);
+  });
+
+  function goToSlide(index) {
+    currentSlide = index;
+    slides[index].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+    updateDots();
   }
 
-  slider.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    updateSlider(e.clientX);
-  });
-  window.addEventListener('mousemove', (e) => {
-    if (isDragging) updateSlider(e.clientX);
-  });
-  window.addEventListener('mouseup', () => isDragging = false);
+  function updateDots() {
+    dotsContainer.querySelectorAll('.gallery-dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentSlide);
+    });
+  }
 
-  slider.addEventListener('touchstart', (e) => {
-    isDragging = true;
-    updateSlider(e.touches[0].clientX);
+  // Update dots on scroll
+  carousel.addEventListener('scroll', () => {
+    const scrollLeft = carousel.scrollLeft;
+    const slideWidth = carousel.offsetWidth;
+    const newSlide = Math.round(scrollLeft / slideWidth);
+    if (newSlide !== currentSlide) {
+      currentSlide = newSlide;
+      updateDots();
+    }
   });
-  window.addEventListener('touchmove', (e) => {
-    if (isDragging) updateSlider(e.touches[0].clientX);
-  });
-  window.addEventListener('touchend', () => isDragging = false);
-});
+
+  // Arrow navigation
+  window.scrollGallery = function(dir) {
+    const newSlide = Math.max(0, Math.min(slides.length - 1, currentSlide + dir));
+    goToSlide(newSlide);
+  };
+}
