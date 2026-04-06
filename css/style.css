@@ -419,6 +419,12 @@ nav {
   background: var(--bg-card-hover);
 }
 
+a.service-card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
 .service-card:hover::before { width: 100%; }
 
 .service-icon {
@@ -907,6 +913,133 @@ footer {
 
 .footer-links a:hover { color: var(--green-light); }
 
+/* ── SERVICE PAGES ── */
+.service-hero {
+  padding: 8rem 3rem 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.service-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.service-hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.service-hero p {
+  color: var(--text-muted);
+  font-weight: 300;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.service-body {
+  padding: 3rem 3rem 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.service-layout {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.service-image {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.service-image img {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+}
+
+.service-text h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.4rem;
+  color: var(--gold);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.service-text h2:first-of-type {
+  margin-top: 0;
+}
+
+.service-text p {
+  color: var(--text-light);
+  font-weight: 300;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.service-text ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.service-text ul li {
+  color: var(--text-light);
+  font-weight: 300;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.service-text ul li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--green-light);
+  font-weight: 700;
+}
+
+.service-pricing {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin: 1.5rem 0;
+}
+
+.service-pricing p {
+  margin-bottom: 0.5rem;
+}
+
+.service-pricing strong {
+  color: var(--white);
+  font-weight: 600;
+}
+
+.service-cta {
+  padding: 3rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.service-cta p {
+  color: var(--text-muted);
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+
 /* ── ANIMATIONS ── */
 @keyframes fadeSlideUp {
   from { opacity: 0; transform: translateY(30px); }
@@ -931,6 +1064,10 @@ footer {
   .hero { padding: 7.5rem 1.5rem 2rem; }
   .hero-content { grid-template-columns: 1fr; gap: 2rem; }
   .services, .why-us, .quote-section, .gallery, .testimonials, .about { padding: 3rem 1.5rem; }
+  .service-hero { padding: 7rem 1.5rem 2rem; }
+  .service-body { padding: 2rem 1.5rem; }
+  .service-layout { grid-template-columns: 1fr; gap: 2rem; }
+  .service-cta { padding: 2rem 1.5rem; }
   .gallery-slide { flex: 0 0 100%; }
   .gallery-photo img { aspect-ratio: auto; }
   .gallery-arrow { width: 36px; height: 36px; font-size: 1.4rem; }
