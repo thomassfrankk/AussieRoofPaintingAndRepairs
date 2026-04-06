@@ -427,18 +427,6 @@ a.service-card {
 
 .service-card:hover::before { width: 100%; }
 
-.service-icon {
-  width: 52px;
-  height: 52px;
-  background: rgba(45,140,60,0.1);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
 .service-card h3 {
   font-family: 'DM Serif Display', serif;
   font-size: 1.25rem;
@@ -451,6 +439,19 @@ a.service-card {
   font-weight: 300;
   line-height: 1.65;
   color: var(--text-muted);
+  margin-bottom: 1.2rem;
+}
+
+.service-link {
+  color: var(--gold);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: color 0.3s;
+}
+
+.service-card:hover .service-link {
+  color: var(--gold-light);
 }
 
 /* ── BEFORE & AFTER GALLERY ── */
